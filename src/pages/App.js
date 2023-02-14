@@ -1,8 +1,10 @@
+import Page from '../components/Page/Page.js';
+
 function App() {
   return (
-    <div className="App">
+    <Page>
       <p>oi mae</p>
-    </div>
+    </Page>
   );
 }
 
