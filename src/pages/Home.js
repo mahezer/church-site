@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react'
 import Page from '../components/Page';
 import Menu from '../components/Menu';
 import Carousel from 'react-material-ui-carousel';
@@ -10,6 +11,7 @@ import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import Map from '../components/Map';
 
 const items = [
   {
@@ -32,8 +34,31 @@ const Item = (props) => (
   </Paper>
 )
 
+const mapCenter = {
+  lat: -20.5357296,
+  lng: -47.413503
+}
+
+
 
 function Home() {
+  
+  const [map, setMap] = React.useState(null)
+
+  // const onLoad = React.useCallback(function callback(map) {
+  //   // This is just an example of getting and using the map instance!!! don't just blindly copy!
+  //   const bounds = new window.google.maps.LatLngBounds(mapCenter);
+  //   map.fitBounds(bounds);
+
+  //   setMap(map)
+  // }, [])
+
+  // const onUnmount = React.useCallback(function callback(map) {
+  //   setMap(null)
+  // }, [])
+
+  useEffect(() => {},[map])
+
   return (
     <div>
       <Menu />
@@ -54,11 +79,70 @@ function Home() {
           <Grid container justifyContent="center">
             <TableContainer>
               <Table>
-                <TableHead></TableHead>
-                <TableBody></TableBody>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>
+                      <Typography>Domingo</Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography>Quarta-Feira</Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography>Quinta e Sexta</Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography>Sabado</Typography>
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>
+                      <Typography>9h: Escola Biblica Dominical</Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography>20h: Culto de Oração</Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography>Culto nos Lares</Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography>18h: Culto Teens</Typography>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
+                      <Typography>19h: Culto de Adoração</Typography>
+                    </TableCell>
+                    <TableCell></TableCell>
+                    <TableCell></TableCell>
+                    <TableCell>
+                      <Typography>20h: Culto dos Jovens</Typography>
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
               </Table>
             </TableContainer>
           </Grid>
+        </Grid>
+      </Grid>
+      <Grid container>
+        <Grid item xs={6}>
+          <Typography  component="h2">
+              INFORMAÇÕES
+          </Typography>
+          <Typography>Whatsapp</Typography>
+          <Typography>pibfranca@pibfranca.org.br</Typography>
+          <Typography>(16) 3403-4383</Typography>
+        </Grid>
+        <Grid item xs={6}>
+          <Typography  component="h2">
+              ENDEREÇO DA IGREJA
+          </Typography>
+          <Typography>
+             Rua José de Alencar, 1790, Franca, SP, Brazil
+          </Typography>
+            <Map lat={mapCenter.lat} lng={mapCenter.lng} />
         </Grid>
       </Grid>
     </div>
