@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import Page from '../components/Page';
+import React from 'react'
 import Menu from '../components/Menu';
 import Carousel from 'react-material-ui-carousel';
 import { Paper, Button } from '@mui/material'
@@ -7,7 +6,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
@@ -35,29 +34,13 @@ const Item = (props) => (
 )
 
 const mapCenter = {
-  lat: -20.5357296,
-  lng: -47.413503
+  lat: -20.53577,
+  lng: -47.41122
 }
 
 
 
 function Home() {
-  
-  const [map, setMap] = React.useState(null)
-
-  // const onLoad = React.useCallback(function callback(map) {
-  //   // This is just an example of getting and using the map instance!!! don't just blindly copy!
-  //   const bounds = new window.google.maps.LatLngBounds(mapCenter);
-  //   map.fitBounds(bounds);
-
-  //   setMap(map)
-  // }, [])
-
-  // const onUnmount = React.useCallback(function callback(map) {
-  //   setMap(null)
-  // }, [])
-
-  useEffect(() => {},[map])
 
   return (
     <div>
@@ -142,7 +125,7 @@ function Home() {
           <Typography>
              Rua José de Alencar, 1790, Franca, SP, Brazil
           </Typography>
-            <Map lat={mapCenter.lat} lng={mapCenter.lng} />
+            <Map center={mapCenter} />
         </Grid>
       </Grid>
     </div>
